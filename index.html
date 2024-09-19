@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juan Santos - Web Developer</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Font Awesome for Icons (Optional) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnH2N0HWSgYBJGfT0lCkgZoZmxfqSfZ0Bz2Bs+gn4lAXrCpJmSZ+pj8Q+Y+TquMp1f6ro8CqA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Embedded CSS -->
+    <style>
+        /* Reset Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header Styling */
+        header {
+            background: #333;
+            color: #fff;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        header h1 {
+            float: left;
+            margin-left: 20px;
+            font-size: 24px;
+        }
+
+        header nav {
+            float: right;
+            margin-right: 20px;
+        }
+
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        header nav a:hover {
+            color: #ddd;
+        }
+
+        /* Clearfix */
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        /* About Section */
+        #about {
+            padding: 100px 0 50px 0;
+            background: #f4f4f4;
+        }
+
+        #about h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+
+        #about p {
+            text-align: center;
+            max-width: 800px;
+            margin: auto;
+            font-size: 18px;
+            padding: 0 20px;
+        }
+
+        /* Projects Section */
+        #projects {
+            padding: 50px 0;
+            background: #fff;
+        }
+
+        #projects h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 32px;
+        }
+
+        .project-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .project {
+            width: 300px;
+            margin: 20px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project a {
+            display: block;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project a:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .project img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .project-info {
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 50px 0;
+            background: #f4f4f4;
+        }
+
+        #contact h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+
+        #contact form {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        #contact form input,
+        #contact form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        #contact form button {
+            padding: 10px 20px;
+            border: none;
+            background: #333;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background 0.3s;
+        }
+
+        #contact form button:hover {
+            background: #555;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer a {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #ddd;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            header h1, header nav {
+                float: none;
+                text-align: center;
+            }
+
+            header nav a {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .project-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container clearfix">
+            <h1>Juan Santos</h1>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>
+                Hello! I'm Juan Santos, a passionate Web Developer with experience in creating dynamic and responsive websites. I specialize in JavaScript, HTML5, CSS3, and modern frameworks like React. I love turning complex problems into simple, beautiful, and intuitive designs.
+            </p>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2>My Projects</h2>
+            <div class="project-container">
+                <!-- Project 1 -->
+                <div class="project">
+                    <a href="https://thereal-baitjet.github.io/cargame/index.html" target="_blank" rel="noopener noreferrer">
+                        <img src="images/cargameimage.jpg" alt="Car Game" loading="lazy">
+                        <div class="project-info">Car Game</div>
+                    </a>
+                </div>
+                <!-- Project 2 -->
+                <div class="project">
+                    <a href="https://thereal-baitjet.github.io/Hangman/hangman.html" target="_blank" rel="noopener noreferrer">
+                        <img src="images/Hangman.png" alt="Hangman Game" loading="lazy">
+                        <div class="project-info">Hangman Game</div>
+                    </a>
+                </div>
+                <!-- Project 3 -->
+                <div class="project">
+                    <a href="https://thereal-baitjet.github.io/sphere4/index.html" target="_blank" rel="noopener noreferrer">
+                        <img src="images/sphere.jpg" alt="Project Three" loading="lazy">
+                        <div class="project-info">Sphere</div>
+                    </a>
+                </div>
+                <!-- Add more projects as needed -->
+                <div class="project">
+                    <a href="https://t.co/hKHthfwZMz" target="_blank" rel="noopener noreferrer">
+                        <img src="https://pbs.twimg.com/profile_banners/1802477466910408704/1718580024/1500x500" alt="RLM CRYPTO" loading="lazy">
+                        <div class="project-info">RLM CRYPTO</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <script src="https://cdn03.jotfor.ms/static/prototype.forms.js?v=3.3.57009" type="text/javascript"></script>
+<script src="https://cdn01.jotfor.ms/static/jotform.forms.js?v=3.3.57009" type="text/javascript"></script>
+<script src="https://cdn02.jotfor.ms/js/punycode-1.4.1.min.js?v=3.3.57009" type="text/javascript" defer></script>
+
+<script type="text/javascript">	
+    window.addEventListener('DOMContentLoaded',function(){	
+        JotForm.init(function(){
+            if (window.JotForm && JotForm.accessible) $('input_8').setAttribute('tabindex',0);
+            JotForm.alterTexts({"nextButtonText":"Next","prevButtonText":"Previous","submitButtonText":"Submit"});
+        });
+        setTimeout(function() {
+            JotForm.paymentExtrasOnTheFly([null, {"name":"name","qid":"1","text":"Name","type":"control_fullname"},null,null,{"name":"email","qid":"4","subLabel":"example@example.com","text":"Email","type":"control_email"},{"name":"submit","qid":"5","text":"Submit","type":"control_button"},null,null,{"name":"description","qid":"8","text":"Description","type":"control_textarea","wysiwyg":"Disable"},{"name":"phoneNumber","qid":"9","text":"Phone Number","type":"control_phone"}]); 
+        }, 20); 
+    });	
+</script>
+
+<link href="https://cdn01.jotfor.ms/static/formCss.css?3.3.57009" rel="stylesheet" type="text/css" />
+<link type="text/css" rel="stylesheet" href="https://cdn02.jotfor.ms/stylebuilder/static/form-common.css?v=26d6d57" />
+<style type="text/css">@media print{*{-webkit-print-color-adjust: exact !important;color-adjust: exact !important;}.form-section{display:inline!important}.form-pagebreak{display:none!important}.form-section-closed{height:auto!important}.page-section{position:initial!important}}</style>
+<link type="text/css" rel="stylesheet" href="https://cdn03.jotfor.ms/css/styles/nova.css?3.3.57009" />
+<link id="custom-font" type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:light,lightitalic,normal,italic,bold,bolditalic" />
+<link type="text/css" rel="stylesheet" href="https://cdn01.jotfor.ms/themes/CSS/548aa20a700cc46d638b4567.css?v=3.3.57009&themeRevisionID=5e282a64cf250565870e1851" />
+<link type="text/css" rel="stylesheet" href="https://cdn02.jotfor.ms/css/styles/payment/payment_feature.css?3.3.57009" />
+
+<style type="text/css">
+    .form-label-left{
+        width:150px;
+    }
+    .form-line{
+        padding-top:12px;
+        padding-bottom:12px;
+    }
+    .form-label-right{
+        width:150px;
+    }
+    .form-all{
+        width:690px;
+        color:#555 !important;
+        font-family:'Merriweather';
+        font-size:14px;
+    }
+</style>
+
+<form class="jotform-form" onsubmit="return typeof testSubmitFunction !== 'undefined' && testSubmitFunction();" action="https://submit.jotform.com/submit/242626179625160" method="post" name="form_242626179625160" id="242626179625160" accept-charset="utf-8" autocomplete="on">
+  <input type="hidden" name="formID" value="242626179625160" />
+  <input type="hidden" id="JWTContainer" value="" />
+  <input type="hidden" id="cardinalOrderNumber" value="" />
+  <input type="hidden" id="jsExecutionTracker" name="jsExecutionTracker" value="build-date-1726779145869" />
+  <input type="hidden" id="submitSource" name="submitSource" value="unknown" />
+  <input type="hidden" id="buildDate" name="buildDate" value="1726779145869" />
+  
+  <div role="main" class="form-all">
+    <ul class="form-section page-section">
+      <li class="form-line jf-required" data-type="control_textarea" id="id_8">
+        <label class="form-label form-label-left form-label-auto" id="label_8" for="input_8" aria-hidden="false"> Description<span class="form-required">*</span> </label>
+        <div id="cid_8" class="form-input jf-required"> 
+          <textarea id="input_8" class="form-textarea validate[required]" name="q8_description" cols="40" rows="6" data-component="textarea" required="" aria-labelledby="label_8"></textarea>
+        </div>
+      </li>
+
+      <li class="form-line jf-required" data-type="control_fullname" id="id_1">
+        <label class="form-label form-label-left form-label-auto" id="label_1" for="first_1" aria-hidden="false"> Name<span class="form-required">*</span> </label>
+        <div id="cid_1" class="form-input jf-required">
+          <div data-wrapper-react="true">
+            <span class="form-sub-label-container" style="vertical-align:top" data-input-type="first">
+              <input type="text" id="first_1" name="q1_name[first]" class="form-textbox validate[required]" autoComplete="section-input_1 given-name" size="10" required="" />
+              <label class="form-sub-label" for="first_1">First Name</label>
+            </span>
+            <span class="form-sub-label-container" style="vertical-align:top" data-input-type="last">
+              <input type="text" id="last_1" name="q1_name[last]" class="form-textbox validate[required]" autoComplete="section-input_1 family-name" size="15" required="" />
+              <label class="form-sub-label" for="last_1">Last Name</label>
+            </span>
+          </div>
+        </div>
+      </li>
+
+      <li class="form-line" data-type="control_phone" id="id_9">
+        <label class="form-label form-label-left form-label-auto" id="label_9" for="input_9_area" aria-hidden="false"> Phone Number </label>
+        <div id="cid_9" class="form-input">
+          <div data-wrapper-react="true">
+            <span class="form-sub-label-container" style="vertical-align:top" data-input-type="areaCode">
+              <input type="tel" id="input_9_area" name="q9_phoneNumber[area]" class="form-textbox" autoComplete="section-input_9 tel-area-code" />
+              <span class="phone-separate" aria-hidden="true"> -</span>
+              <label class="form-sub-label" for="input_9_area">Area Code</label>
+            </span>
+            <span class="form-sub-label-container" style="vertical-align:top" data-input-type="phone">
+              <input type="tel" id="input_9_phone" name="q9_phoneNumber[phone]" class="form-textbox" autoComplete="section-input_9 tel-local" />
+              <label class="form-sub-label" for="input_9_phone">Phone Number</label>
+            </span>
+          </div>
+        </div>
+      </li>
+
+      <li class="form-line jf-required" data-type="control_email" id="id_4">
+        <label class="form-label form-label-left form-label-auto" id="label_4" for="input_4" aria-hidden="false"> Email<span class="form-required">*</span> </label>
+        <div id="cid_4" class="form-input jf-required">
+          <span class="form-sub-label-container" style="vertical-align:top">
+            <input type="email" id="input_4" name="q4_email" class="form-textbox validate[required, Email]" autoComplete="section-input_4 email" size="30" required="" />
+            <label class="form-sub-label" for="input_4">example@example.com</label>
+          </span>
+        </div>
+      </li>
+
+      <li class="form-line" data-type="control_button" id="id_5">
+        <div id="cid_5" class="form-input-wide">
+          <div data-align="right" class="form-buttons-wrapper form-buttons-right">
+            <button id="input_5" type="submit" class="form-submit-button submit-button" data-component="button">Submit</button>
+          </div>
+        </div>
+      </li>
+      <li style="display:none">Should be Empty: <input type="text" name="website" value="" type="hidden" /></li>
+    </ul>
+  </div>
+</form>
+
+    <!-- Contact Section -->
+    <!-- <section id="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <form id="contact-form">
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section> -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Juan Santos. All Rights Reserved.</p>
+            <p>
+                <div class="socials">
+                    <a href="https://www.linkedin.com/in/juangainc" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/thereal-baitjet" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://twitter.com/baitjet4" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+                
+            </p>
+        </div>
+    </footer>
+
+    <!-- Embedded JavaScript -->
+    <!-- <script>
+        // Handle Contact Form Submission (Optional)
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Implement form submission logic (e.g., using EmailJS or server-side processing)
+            alert('Thank you for your message!');
+            this.reset();
+        });
+    </script>
+    <script type="text/javascript" src="https://cdn.emailjs.com/sdk/3.2/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("KH0yTai6wO5_czSY7");
+        })();
+    </script> -->
+    
+</body>
+</html>
